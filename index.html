@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1 class="text-center">Hiragana test simulator</h1>
+    <br>
+    <div class="container">
+        <button class="btn btn-primary" onclick="reveal()">Revelar resultados</button>
+        <button class="btn btn-secondary" onclick="Repetir()">Repetir</button>
+        <div class="test"></div>
+    </div>
+</body>
+
+</html>
+<script>
+
+    function Repetir() {
+        document.querySelector('.test').innerHTML = '';
+        prepare();
+    };
+
+    function prepare() {
+
+        let data = {
+            "にんげん (human)": "ningen",
+            "じんるい (humanity)": "jinrui",
+            "ひと (person)": "hito",
+            "おとこ (male)": "otoko",
+            "おとこのひと (man)": "otokonohito",
+            "おとこのこ (boy)": "otokonoko",
+            "おんな (female)": "onna",
+            "おんなのひと (woman)": "onnanohito",
+            "おんなのこ (girl)": "onnanoko",
+            "あかちゃん (baby)": "akachan",
+            "わかもの (youth)": "wakamono",
+            "わたし (I)": "watashi",
+            "わたくし (I)": "watakushi",
+            "ぼく (I)": "boku",
+            "おれ (I)": "ore",
+            "あたし (I)": "atashi",
+            "しょうじょ (girl)": "shoujo",
+            "しょうねん (boy)": "shounen",
+            "いしゃ (doctor)": "isha",
+            "かんごし (nurse)": "kangoshi",
+            "かんごふ (female)": "kangofu",
+            "しかい (dentist)": "shikai",
+            "せいじか (politician)": "seijika",
+            "べんごし (lawyer)": "bengoshi",
+            "しょうぼうし (firefighter)": "shouboushi",
+            "けいさつかん (police)": "keisatsukan",
+            "へいし (soldier)": "heishi",
+            "けんちくか (architect)": "kenchikuka",
+            "せんせい (teacher)": "sensei",
+            "きょうし (()": "academic",
+            "かしゅ (singer)": "kyoushi",
+            "エンジニア (engineer)": "kashu",
+            "あし (foot)": "ashi",
+            "かかと (heel)": "kakato",
+            "すね (shin)": "sune",
+            "ひざ (knee)": "hiza",
+            "もも (thigh)": "momo",
+            "あたま (head)": "atama",
+            "かお (face)": "kao",
+            "くち (mouth)": "kuchi",
+            "くちびる (lips)": "kuchibiru",
+            "は (tooth)": "ha",
+            "はな (nose)": "hana",
+            "め (eye)": "me",
+            "ひげ (moustache)": "hige",
+            "かみ (hair)": "kami",
+            "みみ (ear)": "mimi",
+            "おなか (stomach)": "onaka",
+            "うで (arm)": "ude",
+            "ひじ (elbow)": "hiji",
+            "かた (shoulder)": "kata",
+            "つめ (nail)": "tsume",
+            "て (hand)": "te",
+            "てくび (wrist)": "tekubi",
+            "てのひら (palm)": "te",
+            "ゆび (finger)": "yubi",
+            "しり (buttocks)": "shiri",
+            "おなか (abdomen)": "o",
+            "かんぞう (liver)": "kanzō",
+            "きも (liver)": "kimo",
+            "きんにく (muscle)": "kin",
+            "くび (neck)": "kubi",
+            "こころ (heart)": "kokoro",
+            "こし (waist)": "koshi",
+            "しんぞう (heart)": "shinzō",
+            "せなか (back)": "senaka",
+            "ち (blood)": "chi",
+            "にく (meat)": "niku",
+            "はだ (skin)": "hada",
+            "ひふ (skin)": "hifu",
+            "ほね (bone)": "hone",
+            "むね (chest)": "mune",
+            "かぜ (cold)": "kaze",
+            "げり (diarrhea)": "geri",
+            "びょうき (illness)": "byōki",
+            "かぞく (family)": "kazoku",
+            "りょうしん (parents)": "ryoushin",
+            "こども (children)": "kodomo",
+            "ちち (father)": "chichi",
+            "はは (mother)": "haha",
+            "つま (wife)": "tsuma",
+            "おっと (husband)": "otto",
+            "あに (older)": "ani",
+            "あね (older)": "ane",
+            "おとうと (younger)": "otōto",
+            "いもうと (younger)": "imōto",
+            "きょうだい (brothers)": "kyōdai",
+            "しまい (sisters)": "shimai",
+            "そふ (grandfather)": "sofu",
+            "そぼ (grandmother)": "sobo",
+            "まご (grandchild)": "mago",
+            "おじ (uncle)": "oji",
+            "おば (aunt)": "oba",
+            "いとこ (cousin)": "itoko",
+            "めい (niece)": "mei",
+            "おい (nephew)": "oi"
+        }
+
+        let randoms = [];
+        let results = []
+        for (let index = 0; index < 6; index++) {
+            let random = Object.keys(data)[Math.floor(Math.random() * Object.keys(data).length)]
+            document.querySelector('.test').innerHTML += `
+        <hr>
+        <p>${data[random]}</p>
+        <p class="hidden">${random}</p>
+    `
+        }
+    }
+
+    function reveal() {
+        document.querySelectorAll('.hidden').forEach((element) => { element.className = "" })
+    }
+
+    prepare();
+
+</script>
